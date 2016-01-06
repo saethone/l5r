@@ -1,0 +1,1080 @@
+<div class="sheet-charsheet">
+<div class="sheet-bio sheet-3colrow sheet-container">
+    <div class="sheet-col">
+        <label><span>Name: </span> <input type="text" name="attr_Name" /></label>
+        <label><span>Clan: </span> <input type="text" name="attr_Clan" /></label>
+        <label><span>Family: </span> <input type="text" name="attr_Family" /></label>
+        <label><span>School: </span> <input type="text" name="attr_School" /></label>
+        </div>
+     <div class="sheet-col">
+        <table>
+         <tr>
+            <td><label style=display:inline>Rank:</label></td>
+            <td><input  type="number" disabled="true" name="attr_Rank" value="round(((@{Insight} - 112) / 25))" /></td>
+            <td></td>
+            <td><label></label></td>
+            <td><label></label></td>
+            </tr>
+        <tr>
+            <td><div><label style=display:inline>Total Exp:</label></td>
+            <td><input type="number"  value='40' name="attr_TExperience" /></div></td>
+            <td><label>Basic Roll:</label></td>
+            <td><button type='roll' name='roll_Basic'value='&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}} {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifiers|0}}} {{Results=[[?{Roll|1}d10k?{Keep|1}!!+ {?{Modifiers|0}]]}}'></button></td>
+            <td><button type="roll"  value="'&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}}  {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifier|0}}} {{Results=[[[[{?{Roll|1}, 10}kl1]]d10!!k[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2)]], 10}kl1]] + [[[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2) + ceil({?{Roll|1} - 10, 0}k1 / 2) * floor(?{Keep|1} / 10)]] - 10, 0}k1 * 2]] + [[?{Roll|1} % 2 * (1 - floor(?{Keep|1} / 10)) *  floor(?{Roll|1} / 10) * 2]]]] + ?{Modifier|0} ]]}}"></button></td
+        </tr>
+        <tr>
+            <td><div><label style=display:inline>Avail Exp:</label></td>
+            <td><input type="number"  value='40' name="attr_Experience" /></div></td>
+            <td><label>Emphasis Roll:</label></td>
+            <td><button type='roll' name='roll_Emphasis' value='&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}} {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifiers|0}}} {{Results=[[?{Roll|1}d10rok?{Keep|1}!!+?{Modifiers|0}]]}}'></button></td></td>
+            <td><button type="roll"  value="'&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}}  {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifier|0}}} {{Results=[[[[{?{Roll|1}, 10}kl1]]d10!!ro1k[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2)]], 10}kl1]] + [[[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2) + ceil({?{Roll|1} - 10, 0}k1 / 2) * floor(?{Keep|1} / 10)]] - 10, 0}k1 * 2]] + [[?{Roll|1} % 2 * (1 - floor(?{Keep|1} / 10)) *  floor(?{Roll|1} / 10) * 2]]]] + ?{Modifier|0} ]}}]"></button></td
+        </tr>
+        <tr>
+            <td><div><label style=display:inline>Insight:</label></td>
+            <td><input type="number" title="(Rings x10) + Skills" name="attr_Insight"/></div></td>
+            <td><label>Untrained Roll:</label></td>
+            <td><button type='roll' name='roll_Untrained' value='&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}} {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifiers|0}}}} {{Results=[[?{Roll|1}d10k?{Keep|1}+ ?{Modifiers|0}]]}}'></button></td></td>
+            <td><button type="roll"  value="'&{template:fatedefault} {{title=@{Name}}} {{subtitle=?{Roll for?|Basic Roll}}}  {{Rolled=?{Roll|1}}} {{Kept=?{Keep|1}}} {{Modifiers=?{Modifier|0}}} {{Results=[[[[{?{Roll|1}, 10}kl1]]d10k[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2)]], 10}kl1]] + [[[[{?{Keep|1} + [[floor({?{Roll|1} - 10, 0}k1 / 2) + ceil({?{Roll|1} - 10, 0}k1 / 2) * floor(?{Keep|1} / 10)]] - 10, 0}k1 * 2]] + [[?{Roll|1} % 2 * (1 - floor(?{Keep|1} / 10)) *  floor(?{Roll|1} / 10) * 2]]]] + ?{Modifier|0} ]}}]"></button></td>
+        </tr>            
+        </table>
+    </div>
+    <div class="sheet-col center">
+        <img src="http://i.imgur.com/tv2Gvag.png" class="banner" />
+    </div>
+</div> <!--Basic Info -->
+<p></p>
+
+<div class="center sheet-container">
+    <input type="radio" class="tab" name="attr_tab" value="bio" checked="checked" /><span title="Bio"></span>
+    <input type="radio" class="tab" name="attr_tab" value="traits"  /><span title="Traits"></span>
+    <input type="radio" class="tab" name="attr_tab" value="skills" /><span title="Skills"></span>
+    <input type="radio" class="tab" name="attr_tab" value="weapons" /><span title="Weapons"></span>
+    <input type="radio" class="tab" name="attr_tab" value="abils" /><span title="Abilities"></span>
+    <input type="radio" class="tab" name="attr_tab" value="advs" /><span title="Advantages"></span>
+    <input type="radio" class="tab" name="attr_tab" value="spells" /><span title="Spells"></span>
+
+    <p></p>
+    
+<div class="tab-content bio-tab">
+    <h1 class="separator"><span></span></h1>
+        <div style="float:right; width:60%; padding:5px;">
+         <h3>Background</h3>
+        <textarea name="attr_Background" class="sheet-ta-background" style="height:350px;"></textarea></div>
+         <div class="sheet-col sheet-bio-list" >
+            <div><label><span>Sex:</span><input  type="text" class="sheet-bio-line"  name="attr_Sex" /></label></div>
+             <div><label><span>Age: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Height: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Weight: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Hair: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Eyes: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Father: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Mother: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Siblings: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Spouse: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+             <div><label><span>Children: </span> <input type="text" class="sheet-bio-line"  /></label></div>
+         </div>
+</div> <!--Bio Tab -->
+
+<div class="tab-content abils-tab">
+    <h1 class="separator"><span>Techniques</span></h1>
+    <table>
+        <tr>
+            <td style="width:50px"></td>
+            <td style="width:150px"><label>Name</label></td>
+            <td style="width:150px"><label>Source</label></td>
+            <td style="width:500px"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Techniques">
+        <table>
+            <tr>
+                <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{TechName}}} {{Source=@{TechSource}}} {{wide=@{TechDesc}}}"></button></td>
+                <td><input type="text" name="attr_TechName" style="width:150px;"></td>
+                <td><input type="text" name="attr_TechSource" style="width:150px;"></td>
+                <td><input type="text" name="attr_TechDesc" style="width:487px;"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <p></p>
+    <h1 class="separator"><span>Katas</span></h1>
+    <table>
+        <tr>
+            <td style="width:50px"></td>
+            <td style="width:150px"><label>Name</label></td>
+            <td style="width:650px"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Katas">
+        <table>
+            <tr>
+                <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{KataName}}} {{wide=@{KataDesc}}}"></button></td>
+                <td><input type="text" name="attr_KataName" style="width:150px;"></td>
+                <td><input type="text" name="attr_KataDesc" style="width:640px;"></td>
+            </tr>
+        </table>
+    </fieldset>
+    <p></p>
+    <h1 class="separator"><span>Kiho</span></h1>
+    <table>
+        <tr>
+            <td style="width:50px"></td>
+            <td style="width:150px"><label>Name</label></td>
+            <td style="width:150px"><label>Type</label></td>
+            <td style="width:487px"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Kihos">
+        <table>
+            <tr>
+                <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{KihoName}}} {{Type=@{KihoType}}} {{wide=@{KihoDesc}}}"></button></td>
+                <td><input type="text" name="attr_KihoName" style="width:150px;"></td>
+                <td><input type="text" name="attr_KihoType" style="width:150px;"></td>
+                <td><input type="text" name="attr_KihoDesc" style="width:487px;"></td>
+            </tr>
+        </table>
+    </fieldset>
+        <p></p>
+    <h1 class="separator"><span>Shadowlands Mutations & Powers</span></h1>
+    <table>
+        <tr>
+            <td style="width:50px"></td>
+            <td style="width:150px"><label>Name</label></td>
+            <td style="width:150px"><label>Type</label></td>
+            <td style="width:487px"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_SL">
+        <table>
+            <tr>
+                <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{SLName}}} {{Type=@{SLType}}} {{wide=@{SLDesc}}}"></button></td>
+                <td><input type="text" name="attr_SLName" style="width:150px;"></td>
+                <td><input type="text" name="attr_SLType" style="width:150px;"></td>
+                <td><input type="text" name="attr_SLDesc" style="width:487px;"></td>
+            </tr>
+        </table>
+    </fieldset>
+</div><!--Abilities Tab -->
+
+<div class="tab-content advs-tab">
+    <h1 class="separator"><span>Advantages</span></h1>
+    <table>
+        <tr>
+            <td style="width:50px;"></td>
+            <td style="width:150px;"><label>Name</label></td>
+            <td style="width:75px;"><label>Points</label></td>
+            <td style="width:675px;"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Advantages">
+    <table>
+        <tr>
+            <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{AdvName}}} {{wide=@{AdvDesc}}}"></button></td>
+            <td><input type="text" name="attr_AdvName" style="width:150px;"></td>
+            <td><input type="number" name="attr_AdvPoints" style="width:75px;"></td>
+            <td><input type="text" name="attr_AdvDesc" style="width:725px;"></td>
+        </tr>
+    </table>
+    </fieldset>
+    <p></p>
+    <h1 class="separator"><span>Disadvantages</span></h1>
+        <table>
+        <tr>
+            <td style="width:50px;"></td>
+            <td style="width:150px;"><label>Name</label></td>
+            <td style="width:75px;"><label>Points</label></td>
+            <td style="width:675px;"><label>Description</label></td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Disadvantages">
+    <table>
+        <tr>
+            <td><button type="roll"  value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{DisName}}} {{wide=@{DisDesc}}}"></button></td>
+            <td><input type="text" name="attr_DisName" style="width:150px;"></td>
+            <td><input type="number" name="attr_DisPoints" style="width:75px;"></td>
+            <td><input type="text" name="attr_DisDesc" style="width:675px;"></td>
+        </tr>
+    </table>
+    </fieldset>
+</div> <!--Advantages Tab-->
+
+<div class="tab-content center traits-tab">
+    <h1 class="separator"><span></span></h1>
+    <center>
+    <table style="width:100%">
+        <tr>
+            <td class="sheet-align-top">
+            
+            <div class="center">
+    <div class="sheet-6colrow">
+        <div class="sheet-col" style=background-color:#B4C8DB;>
+            <p></p>
+            <div class="attribute">
+                <img src="http://i.imgur.com/E8Rlbho.png" style="width:50px;">
+                <h3 class="attribute">Air</h3>
+            </div>
+            <div class="attribute">
+                <input type="number"  value="((@{Reflexes} + @{Awareness}) - abs(@{Reflexes} - @{Awareness})) / 2" disabled="true" name="attr_Air"/>
+            </div>
+            <div class="attribute">
+                <p></label><span>Reflexes</span></p>
+                <input type="number"  value='2' name="attr_Reflexes" />
+            </div>
+            <div class="attribute">
+                <p></label><span>Awareness</span></p>
+                <input type="number"  value='2' name="attr_Awareness" />
+            </div>
+            <p></p>
+        </div>
+        <div class="sheet-col" style=background-color:#B39C85;>
+            <p></p>
+            <div class="attribute">
+            <img src="http://i.imgur.com/F7EVInQ.png" style="width:50px;">
+                <h3 class="attribute">Earth</h3>
+            </div>
+             <div class="attribute">
+                <input type="number"  value="((@{Stamina} + @{Willpower}) - abs(@{Stamina} - @{Willpower}))/ 2" disabled="true" name="attr_Earth"/>
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Stamina</span></p>
+                <input type="number"  value='2' name="attr_Stamina" />
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Willpower</span></p>
+                <input type="number"  value='2' name="attr_Willpower" />
+            </div>
+            <p></p>
+        </div>
+        <div class="sheet-col" style=background-color:#EBA93C;>
+            <p></p>
+            <div class="attribute">
+                <img src="http://i.imgur.com/LKFcImV.png" style="width:50px;">
+                 <h3 class="attribute">Fire</h3>
+            </div>
+             <div class="attribute">
+               <input type="number"  value='((@{Agility} + @{Intelligence}) - abs(@{Agility} - @{Intelligence})) / 2' disabled="true" name="attr_Fire"/>
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Agility</span></p>
+                <input type="number"  value='2' name="attr_Agility" />
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Intelligence</span></p>
+                <input type="number"  value='2' name="attr_Intelligence" />
+            </div>
+            <p></p>
+        </div>
+        <div class="sheet-col" style=background-color:#98ADDA;>
+            <p></p>
+            <div class="attribute">
+            <img src="http://i.imgur.com/7yMR4mB.png" style="width:50px;">
+                 <h3 class="attribute">Water</h3>
+            </div>
+             <div class="attribute">
+                <input type="number"  value='((@{Strength} + @{Perception}) - abs(@{Strength} - @{Perception})) / 2' disabled='true' name="attr_Water" />
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Strength</span></p>
+                <input type="number"  value='2' name="attr_Strength" />
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Perception</span></p>
+                <input type="number"  value='2' name="attr_Perception" />
+            </div>
+            <p></p>
+        </div>
+        <div class="sheet-col" style=background-color:#BDA7A8;>
+            <p></p>
+            <div class="attribute">
+            <img src="http://i.imgur.com/YkbYaB7.png" style="width:50px;">
+                 <h3 class="attribute">Void</h3>
+                 </div>
+             <div class="attribute">
+                <input type="number" value='2' name="attr_Void" />
+            </div>
+            <div class="attribute">
+                <p></ladel><span>Void Spent</span></p>
+                <input type="number"  value='0' name="attr_Voidspent" />
+            </div>
+            <div class="sheet-col">
+            <div class="attribute">
+            <p></p>
+            </div>
+        </div>
+        
+    </div>
+    </div>
+</div>  <!--Rings-->
+              
+            </td><!--Rings --> 
+            <td class="sheet-align-top">
+            <div class="sheet-col" style="float:left;">
+            <table class="sheet-borderedtable sheet-dots">
+            <tr>
+                <th><h3 class="ability" >Honor     <input type="number" name="attr_HonorRank" /></h3></th>
+            </tr>
+            <tr>
+                    <td><input type="radio" name="attr_Honor" value="1" style="opacity:0.1"/><span></span>
+                    <input type="radio" name="attr_Honor" value="2" /><span></span>
+                    <input type="radio" name="attr_Honor" value="3" /><span></span>
+                    <input type="radio" name="attr_Honor" value="4" /><span></span>
+                    <input type="radio" name="attr_Honor" value="5" /><span></span><br \>
+                    <input type="radio" name="attr_Honor" value="6" /><span></span>
+                    <input type="radio" name="attr_Honor" value="7" /><span></span>
+                    <input type="radio" name="attr_Honor" value="8" /><span></span>
+                    <input type="radio" name="attr_Honor" value="9" /><span></span>
+                    <input type="radio" name="attr_Honor" value="10" /><span></span></td>
+            </tr>
+            <tr>
+                <th><h3 class="ability">Glory     <input type="number" name="attr_GloryRank" /></h3></th>
+            </tr>
+            <tr>
+                    <td><input type="radio" name="attr_Glory" value="1" /><span></span>
+                    <input type="radio" name="attr_Glory" value="2" /><span></span>
+                    <input type="radio" name="attr_Glory" value="3" /><span></span>
+                    <input type="radio" name="attr_Glory" value="4" /><span></span>
+                    <input type="radio" name="attr_Glory" value="5" /><span></span><br \>
+                    <input type="radio" name="attr_Glory" value="6" /><span></span>
+                    <input type="radio" name="attr_Glory" value="7" /><span></span>
+                    <input type="radio" name="attr_Glory" value="8" /><span></span>
+                    <input type="radio" name="attr_Glory" value="9" /><span></span>
+                    <input type="radio" name="attr_Glory" value="10" /><span></span></td>
+            </tr>
+            <tr>
+                <th><h3 class="ability">Status     <input type="number" name="attr_StatusRank" /></h3></th>
+            </tr>
+            <tr>
+                    <td><input type="radio" name="attr_Status" value="1" /><span></span>
+                    <input type="radio" name="attr_Status" value="2" /><span></span>
+                    <input type="radio" name="attr_Status" value="3" /><span></span>
+                    <input type="radio" name="attr_Status" value="4" /><span></span>
+                    <input type="radio" name="attr_Status" value="5" /><span></span><br \>
+                    <input type="radio" name="attr_Status" value="6" /><span></span>
+                    <input type="radio" name="attr_Status" value="7" /><span></span>
+                    <input type="radio" name="attr_Status" value="8" /><span></span>
+                    <input type="radio" name="attr_Status" value="9" /><span></span>
+                    <input type="radio" name="attr_Status" value="10" /><span></span></td>
+            </tr>
+            <tr>
+                <th><h3 class="ability">Taint     <input type="number" name="attr_TaintRank" /></h3></th>
+            </tr>
+            <tr>
+                    <td><input type="radio" name="attr_Taint" value="1" /><span></span>
+                    <input type="radio" name="attr_Taint" value="2" /><span></span>
+                    <input type="radio" name="attr_Taint" value="3" /><span></span>
+                    <input type="radio" name="attr_Taint" value="4" /><span></span>
+                    <input type="radio" name="attr_Taint" value="5" /><span></span><br \>
+                    <input type="radio" name="attr_Taint" value="6" /><span></span>
+                    <input type="radio" name="attr_Taint" value="7" /><span></span>
+                    <input type="radio" name="attr_Taint" value="8" /><span></span>
+                    <input type="radio" name="attr_Taint" value="9" /><span></span>
+                    <input type="radio" name="attr_Taint" value="10" /><span></span></td>
+            </tr>
+            </table>
+         </div>   <!--Honor-->
+            </td ><!--Honor-->
+            <td class="sheet-align-top">
+               <table class="borderedtable">
+                <tr>
+                    <th>Initiative</th>
+                    <th></th>
+                </tr>
+                    <td>Unmodified</td>
+                    <td><input type="number" disabled="true" name="attr_BaseInitiative" value="(@{Reflexes}+@{Rank})" />
+                </tr>
+                <tr>
+                    <td>Modifiers</td>
+                    <td><input type="number" name="attr_InitiativeMod"></td>
+                </tr>
+                <tr>
+                    <th>Armor TN</th>
+                    <th></th>
+                </tr>    
+                <tr>
+                    <td>Base TN</td>
+                    <td><input type="number" disabled="true" name="attr_BaseTN" value="(((@{Reflexes}) * 5) + 5)"/></td>
+                </tr>
+                <tr>
+                    <td>Armor +</td>
+                    <td><input type="number" name="attr_ArmorBonus"></td>
+                </tr>
+                <tr>
+                    <td>Current TN</td>
+                    <td><input type="number" disabled="true" name="attr_CurrentTN" value="(@{BaseTN}+@{ArmorBonus})"/></td>
+                </tr>
+                <tr>
+                    <th>Armor</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>Quality</td>
+                    <td><input type="text" class="narrow" name="attr_ArmorType"></td>
+                </tr>
+                    <td>Reduction</td>
+                    <td><input type="number" name="attr_ArmorReduction"></td>
+                </tr>
+                <tr>
+                    <td>Notes</td>
+                    <td><input type="text" class="narrow" name="attr_ArmorNotes"></td>
+                </tr>
+            </table> <!-- Init/Armor -->
+            </td>
+            <td class="sheet-align-top">
+             <div class="sheet-col">
+             <table class="borderedtable" style='border-collapse: collapse; border-spacing: 0;'>
+             <tr><th colspan="2"><h3>Wounds</h3></th></tr>
+             <tr><th>Wounds</td><th>Lethality</td></tr>
+             <tr>
+             <td><input type="number" name="attr_Wounds" value="0"/></td>
+             <td><select name="attr_Lethality">
+                 <option value="2">Earth x2</option>
+                 <option value="3">Earth x3</option>
+                 <option value="4">Earth x4</option>
+                 <option value="5">Earth x5</option>
+             </select></td></tr>
+                 <tr>
+                    <th style='font-weight: bold;'>Wound Level</td>
+                     <th style='font-weight: bold;'>Total</td>
+                  </tr>
+                 <tr>
+                    <td style='font-weight: bold;'>Healthy (+0)</td>
+                 <td><input type="number" name="attr_Healthy" value="@{Earth}*5" disabled="true"/></td>
+                 </tr>
+                 <tr>
+                     <td style='font-weight: bold;'>Nicked (+3)</td>
+                      <td><input type="number" name="attr_Nicked" value="@{Earth}*5 + @{Earth} * @{Lethality}" disabled="true"/></td></td>
+                  </tr>
+                 <tr>
+                      <td style='font-weight: bold;'>Grazed (+5)</td>
+                     <td><input type="number" name="attr_Grazed" value="@{Earth}*5 + @{Earth} * 2 * @{Lethality}" disabled="true"/></td>
+                </tr>
+                 <tr>
+                    <td style='font-weight: bold;'>Hurt (+10)</td>
+                    <td><input type="number" name="attr_Hurt" value="@{Earth}*5 + @{Earth} * 3 * @{Lethality}" disabled="true"/></td>
+                </tr>
+                <tr>
+                     <td style='font-weight: bold;'>Injured (+15)</td>
+                    <td><input type="number" name="attr_Injured" value="@{Earth}*5 + @{Earth} * 4 * @{Lethality}" disabled="true"/></td>
+                </tr>
+                <tr>
+                     <td style='font-weight: bold;'>Crippled (+20)</td>
+                    <td><input type="number" name="attr_Crippled" value="@{Earth}*5 + @{Earth} * 5 * @{Lethality}" disabled="true"/></td>
+                   </tr>
+                 <tr>
+                    <td style='font-weight: bold;'>Down (+40)</td>
+                     <td><input type="number" name="attr_Down" value="@{Earth}*5 + @{Earth} * 6 * @{Lethality}" disabled="true"/></td>
+                 </tr>
+                 <tr>
+                     <td style='font-weight: bold;'>Out</td>
+                     <td><input type="number" name="attr_Out" value="@{Earth}*5 + @{Earth} * 7 * @{Lethality}" disabled="true"/></td>
+                 </tr>
+             </table>
+         </div> <!--Wounds -->     
+            </td> <!--Wounds --> 
+        </tr>
+    </table>
+    </center>
+
+ <div style="clear:both;"></div>
+
+</div> <!--Traits Tab-->
+
+    <div class="tab-content skills-tab">
+            <h1><span>Skills</span></h1>
+            <p></p>
+            <table style="border-collapse:collapse;border-spacing:0">
+        <tr>
+            <td style="width:15px;"></td>
+            <td style="width:40px;font-weight:bold;">School</td>
+            <td style="width:140px;font-weight:bold">Skill Name</td>
+            <td style="width:75px;font-weight:bold">Type</td>
+            <td style="width:45px;font-weight:bold">Rank</td>
+            <td style="width:50px;font-weight:bold">Trait</td>
+            <td style="width:200px;font-weight:bold">Emphases</td>
+            <td style="width:200px;font-weight:bold">Masteries</td>
+        </tr>
+    </table>
+    <fieldset class="repeating_Skills">
+    <table class="sheet-dots">
+    <tr>
+        <td style="width:40px;"><button type="roll" name="roll_SkillRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{SkillName}}} {{Type=@{SkillType}}} {{Rank=@{SkillRank}}} @{SkillAttribute} {{Emphases=@{SkillEmphases}}} {{Mastery=@{SkillMastery}}}"></button></td>
+        <td style="width:40px;"><input type="checkbox" name="attr_SchoolSkill" value="Yes"><span></span></td>
+        <td><input type="text" name="attr_SkillName" placeholder="Name" style="width:140px;"><span></span></td>
+        <td><select name="attr_SkillType" style="width:75px; position:relative; top:4px;">
+            <option>High</option>
+            <option>Bugei</option>
+            <option>Merchant</option>
+            <option>Low</option>
+        </select></td>
+        <td><input type="number" name="attr_SkillRank" value="1"></td>
+        <td><select name="attr_SkillAttribute"  style="width:85px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_SkillEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_SkillMastery" placeholder="Mastery"></td>
+    </tr>
+    </table>
+    </fieldset>
+    
+    <h1><span>Weapon Skills</span></h1>
+            <p></p>
+            <table style="border-collapse:collapse;border-spacing:0">
+        <tr>
+            <td style="width:15px;"></td>
+            <td style="width:40px;">School</td>
+            <td style="width:100px;font-weight:bold">Skill Name</td>
+            <td style="width:45px;font-weight:bold">Rank</td>
+            <td style="width:100px;font-weight:bold">Trait</td>
+            <td style="width:200px;font-weight:bold">Emphases</td>
+            <td style="width:200px;font-weight:bold">Masteries</td>
+        </tr>
+    <tr>
+        <td><button type="roll" name="roll_ChainRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Chain Weapons}} {{Type=Bugei}} {{Rank=@{ChainRank}}} @{ChainAttribute} {{Emphases=@{ChainEmphases}}} {{Mastery=@{ChainMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_ChainSkill" value="Yes"><span></span></td>
+        <td>Chain Weapons</td>
+        <td><input type="number" name="attr_ChainRank" value="0"></td>
+        <td><select name="attr_ChainAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_ChainEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_ChainMastery" placeholder="Mastery"></td>
+    </tr>
+        <tr>
+        <td><button type="roll" name="roll_HeavyRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Heavy Weapons}} {{Type=Bugei}} {{Rank=@{HeavyRank}}} @{HeavyAttribute} {{Emphases=@{HeavyEmphases}}} {{Mastery=@{HeavyMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_HeavySkill" value="Yes"><span></span></td>
+        <td>Heavy Weapons</td>
+        <td><input type="number" name="attr_HeavyRank" value="0"></td>
+        <td><select name="attr_HeavyAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_HeavyEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_HeavyMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_JiuRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Jiujutsu}} {{Type=Bugei}} {{Rank=@{JiuRank}}} @{JiuAttribute} {{Emphases=@{JiuEmphases}}} {{Mastery=@{JiuMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_JuiSkill" value="Yes"><span></span></td>  
+        <td>Jiujutsu</td>
+        <td><input type="number" name="attr_JiuRank" value="0"></td>
+        <td><select name="attr_JiuAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_JiuEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_JiuMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_KenRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Kenjutsu}} {{Type=Bugei}} {{Rank=@{KenRank}}} @{KenAttribute} {{Emphases=@{KenEmphases}}} {{Mastery=@{KenMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_KenSkill" value="Yes"><span></span></td>
+        <td>Kenjutsu</td>
+        <td><input type="number" name="attr_KenRank" value="0"></td>
+        <td><select name="attr_KenAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_KenEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_KenMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_KnivesRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Knives}} {{Type=Bugei}} {{Rank=@{KnivesRank}}} @{KnivesAttribute} {{Emphases=@{KnivesEmphases}}} {{Mastery=@{KnivesMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_KnivesSkill" value="Yes"><span></span></td>
+        <td>Knives</td>
+        <td><input type="number" name="attr_KnivesRank" value="0"></td>
+        <td><select name="attr_KnivesAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_KnivesEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_KnivesMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_KyuRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Kyujutsu}} {{Type=Bugei}} {{Rank=@{KyuRank}}} @{KyuAttribute} {{Emphases=@{KyuEmphases}}} {{Mastery=@{KyuMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_KyuSkill" value="Yes"><span></span></td>
+        <td>Kyujutsu</td>
+        <td><input type="number" name="attr_KyuRank" value="0"></td>
+        <td><select name="attr_KyuAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_KyuEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_KyuMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_NinRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Ninjutsu}} {{Type=Bugei (Low)}} {{Rank=@{NinRank}}} @{NinAttribute} {{Emphases=@{NinEmphases}}} {{Mastery=@{NinMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_NinSkill" value="Yes"><span></span></td>
+        <td>Ninjutsu</td>
+        <td><input type="number" name="attr_NinRank" value="0"></td>
+        <td><select name="attr_NinAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_NinEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_NinMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_PoleRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Polearms}} {{Type=Bugei}} {{Rank=@{PoleRank}}} @{PoleAttribute} {{Emphases=@{PoleEmphases}}} {{Mastery=@{PoleMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_PoleSkill" value="Yes"><span></span></td>
+        <td>Polearms</td>
+        <td><input type="number" name="attr_PoleRank" value="0"></td>
+        <td><select name="attr_PoleAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_PoleEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_PoleMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_SpearsRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Spears}} {{Type=Bugei}} {{Rank=@{SpearsRank}}} @{SpearsAttribute} {{Emphases=@{SpearsEmphases}}} {{Mastery=@{SpearsMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_SpearsSkill" value="Yes"><span></span></td>
+        <td>Spears</td>
+        <td><input type="number" name="attr_SpearsRank" value="0"></td>
+        <td><select name="attr_SpearsAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_SpearsEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_SpearsMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_StavesRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=Staves}} {{Type=Bugei}} {{Rank=@{StavesRank}}} @{StavesAttribute} {{Emphases=@{StavesEmphases}}} {{Mastery=@{StavesMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_StavesSkill" value="Yes"><span></span></td>
+        <td>Staves</td>
+        <td><input type="number" name="attr_StavesRank" value="0"></td>
+        <td><select name="attr_StavesAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_StavesEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_StavesMastery" placeholder="Mastery"></td>
+    </tr>
+    <tr>
+        <td><button type="roll" name="roll_FanRoll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=War Fan}} {{Type=Bugei}} {{Rank=@{FanRank}}} @{FanAttribute} {{Emphases=@{FanEmphases}}} {{Mastery=@{FanMastery}}}"></button></td>
+        <td class="sheet-dots" style="width:40px;"><input type="checkbox" name="attr_FanSkill" value="Yes"><span></span></td>
+        <td>War Fan</td>
+        <td><input type="number" name="attr_FanRank" value="0"></td>
+        <td><select name="attr_FanAttribute"  style="width:100px;position:relative; top:4px;">
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option>
+            <option value="{{Awareness=@{Awareness}}}">Awareness</option>
+            <option value="{{Stamina=@{Reflexes}}}">Stamina</option>
+            <option value="{{Willpower=@{Willpower}}}">Willpower</option>
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Intelligence=@{Intelligence}}}">Intelligence</option>
+            <option value="{{Strength=@{Strength}}}">Strength</option>
+            <option value="{{Perception=@{Perception}}}">Perception</option>
+        </select></td>
+        <td><input type="text" name="attr_FanEmphases" placeholder="Emphases"></td>
+        <td><input type="text" name="attr_FanMastery" placeholder="Mastery"></td>
+    </tr>
+    </table>
+    
+
+</div> <!--Skills Tab-->
+     
+    <div class="tab-content weapons-tab">
+    <h1 class="separator"><span></span></h1>
+    <table>
+        <tr>
+            <td style="width:75px;"></td>
+            <td><label>Koku</label> <input name="attr_Koku" type="number" class="sheet-money"></td>
+            <td><label>Bu</label> <input name="attr_Bu" type="number" class="sheet-money"></td>
+            <td><label>Zeni</label> <input name="attr_Zeni" type="number" class="sheet-money"></td>
+            <td style="width:100px;"></td>
+            <td><label>Armor Piercing</label> <input name="attr_AP" type="number"></td>
+            <td><label>Flesh Cutter</label> <input name="attr_FC" type="number"></td>
+            <td><label>Humming Bulb</label> <input name="attr_HB" type="number"></td>
+            <td><label>Rope Cutter</label> <input name="attr_RC" type="number"></td>
+            <td><label>Willow Leaf (Ya)</label> <input name="attr_WL" type="number"></td>
+        </tr>
+    </table>
+ 
+        <h1 class="separator"><span>Weapons</span></h1>
+            <table style='border-collapse: collapse; border-spacing: 0; width:100%'>
+    <tr>
+            <td></td>
+            <td style='font-weight: bold;width:150px;'>Weapon</td>
+            <td style='font-weight: bold;width:100px;'>Skill</td>
+            <td style="font-weight: bold;width:65px;">Ability</td>
+            <td style='font-weight: bold;width:65px;'>Damage</td>
+            <td style='font-weight: bold;'>Notes/Range/Strength</td>
+   </tr>
+   </table>
+   <fieldset class="repeating_Weapons">
+   <table>
+   <tr>
+        <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} @{Weapon1Skill} @{Weapon1Attribute} {{Damage=@{Weapon1DamageRoll}}} {{wide=@{Weapon1Notes}}}"></button></td>
+        <td><input type="text" name="attr_Weapon1" class="regular"></td>
+        <td><select class="regular" name="attr_Weapon1Skill" style="position:relative;top:4px;">
+                     <option value="{{Skill=Jiujutsu}} {{Ranks=@{JiuRank}}} {{Emphases=@{JiuEmphases}}} {{Mastery=@{JiuMastery}}}">Jiujutsu</option>
+                     <option value="{{Skill=Chain Weapons}} {{Ranks=@{ChainRank}}} {{Emphases=@{ChainEmphases}}} {{Mastery=@{ChainMastery}}}">Chain Weapons</option>
+                     <option value="{{Skill=Heavy Weapons}} {{Ranks=@{HeavyRank}}} {{Emphases=@{HeavyEmphases}}} {{Mastery=@{HeavyMastery}}}">Heavy Weapons</option>
+                     <option value="{{Skill=Kenjutsu}} {{Ranks=@{KenRank}}} {{Emphases=@{KenEmphases}}} {{Mastery=@{KenMastery}}}">Kenjutsu</option>
+                     <option value="{{Skill=Kinves}} {{Ranks=@{KnivesRank}}} {{Emphases=@{KnivesEmphases}}} {{Mastery=@{KnivesMastery}}}">Knives</option>
+                     <option value="{{Skill=Ninjutsu}} {{Ranks=@{NinRank}}} {{Emphases=@{NinEmphases}}} {{Mastery=@{NinMastery}}}">Ninjutsu</option>
+                     <option value="{{Skill=Polejutsu}} {{Ranks=@{PoleRank}}} {{Emphases=@{PoleEmphases}}} {{Mastery=@{PoleMastery}}}">Polearms</option>
+                     <option value="{{Skill=Spears}} {{Ranks=@{SpearsRank}}} {{Emphases=@{SpearsEmphases}}} {{Mastery=@{SpearsMastery}}}">Spears</option>
+                     <option value="{{Skill=Staves}} {{Ranks=@{StavesRank}}} {{Emphases=@{StavesEmphases}}} {{Mastery=@{StavesMastery}}}">Staves</option>
+                     <option value="{{Skill=War Fan}} {{Ranks=@{FanRank}}} {{Emphases=@{FanEmphases}}} {{Mastery=@{FanMastery}}}">War Fan</option>
+                     </select></td>
+        <td><select class="narrow" name="attr_Weapon1Attribute" style="position:relative;top:4px;">
+            <option value="{{Agility=@{Agility}}}">Agility</option>
+            <option value="{{Reflexes=@{Reflexes}}}">Reflexes</option></select></td>
+        <td><input type="text" name="attr_Weapon1DamageRoll" class="sheet-short" style="width:70px;"></td>
+        <td><input type="text" name="attr_Weapon1Notes" class="sheet-short" style="width:390px;"></td>
+        </tr>
+     </table>
+     </fieldset>
+     
+        <h1 class="separator"><span>Gear</span></h1>
+            <table style='border-collapse: collapse; border-spacing: 0; width:100%'>
+    <tr>
+            <td style="width:50px"></td>
+            <td style='font-weight: bold;width:150px;'>Item</td>
+            <td style='font-weight: bold;width:100px;'>Location</td>
+            <td style="font-weight: bold;width:650px;">Description</td>
+   </tr>
+   </table>
+   <fieldset class="repeating_Gear">
+       <table>
+           <tr>
+               <td><button type="roll" value="&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{ItemName}}} {{wide=@{ItemDesc}}} "></button></td>
+               <td><input type="text" style="width:150px;" placeholder="Item" name="attr_ItemName"></td>
+               <td><input type="text" style="width:150px;" placeholder="Location" name="attr_ItemLoc"></td>
+               <td><input type="text" style="width:650px;" placeholder="Descrpiption" name="attr_ItemDesc"></td>
+           </tr>
+       </table>
+   </fieldset>
+
+</div> <!--Weapons Tab -->
+
+    <div class="tab-content spells-tab">
+    <h1 class="separator"><span></span></h1>
+    <div>Shugenja School Rank: 
+    <input type="number" name="attr_shugenja_rank">
+    </div>
+    <table class="sheet-spelltable">
+        <tr><td><h3>Element</h3></td><td><h3>Used</h3></td><td><h3>Slots</h3></td><td><h3>Affinity</h3></td><td><h3>Element</h3></td><td><h3>Used</h3></td><td><h3>Slots</h3></td><td><h3>Affinity</h3></td></tr>
+        <tr>
+            <td>Air</td>
+            <td><input name="attr_AirUsed" type="number"></td>
+            <td><input type="number" disabled="true" name="attr_airSpellSlots" value="((@{Reflexes} + @{Awareness}) - abs(@{Reflexes} - @{Awareness})) / 2"></td>
+            <td><select name="attr_airAffinity" class="sheet-regular"><option value="None">None</option><option value="1">Affinity</option><option value="-1">Deficiency</option></select>
+            <td>Earth</td>
+            <td><input name="attr_EarthUsed" type="number"></td>
+            <td><input type="number" disabled="true" name="attr_earthSpellSlots" value="((@{Stamina} + @{Willpower}) - abs(@{Stamina} - @{Willpower}))/ 2"></td>
+            <td><select name="attr_earthAffinity" class="sheet-regular"><option value="None">None</option><option value="1">Affinity</option><option value="-1">Deficiency</option></select></td>
+        </tr>
+        <tr>
+            <td>Fire</td>
+            <td><input name="attr_FireUsed" type="number"></td>
+            <td><input type="number" disabled="true" name="attr_fireSpellSlots" value='((@{Agility} + @{Intelligence}) - abs(@{Agility} - @{Intelligence})) / 2'></td>
+            <td><select name="attr_fireAffinity" class="sheet-regular"><option value="None">None</option><option value="1">Affinity</option><option value="-1">Deficiency</option></select></td>
+            <td>Water</td>
+            <td><input name="attr_WaterUsed" type="number"></td>
+            <td><input type="number" disabled="true" name="attr_waterSpellSlots" value='((@{Strength} + @{Perception}) - abs(@{Strength} - @{Perception})) / 2'></td>
+            <td><select name="attr_waterAffinity" class="sheet-regular"><option value="None">None</option><option value="1">Affinity</option><option value="-1">Deficiency</option></select></td>
+        </tr>
+        <tr>
+            <td>Bonus/Void</td>
+            <td><input name="attr_BonusUsed" type="number"></td>
+            <td><input type="number" disabled="true" name="attr_bonusSpellSlots" value="(@{Void} + 0)"></td>
+            <td><select name="attr_voidAffinity" class="sheet-regular"><option value="None">None</option><option value="1">Affinity</option><option value="-1">Deficiency</option></select></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+    </table>
+        <h1 class="separator"><span>Spells</span></h1>
+        
+    <div class="center sheet-container">
+    
+    <input type="radio" class="spellstab" name="attr_spellstab" value="universalspells" checked="checked"/><span title="Universal"></span>
+    <input type="radio" class="spellstab" name="attr_spellstab" value="airspells" /><span title="Air"></span>
+    <input type="radio" class="spellstab" name="attr_spellstab" value="earthspells" /><span title="Earth"></span>
+    <input type="radio" class="spellstab" name="attr_spellstab" value="firespells" /><span title="Fire"></span>
+    <input type="radio" class="spellstab" name="attr_spellstab" value="waterspells" /><span title="Water"></span>
+    <input type="radio" class="spellstab" name="attr_spellstab" value="voidspells" /><span title="Void"></span>
+    
+    <div class="spellstab-content sheet-universalspells-tab">
+    <fieldset class="repeating_universalspells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_uspellName" class="sheet-regular" /></td>
+                <td><strong>Ring: </strong>
+                     <select name="attr_uspellRing" class="sheet-narrow" style="position:relative; top:4px;">
+                        <option value="{{Air=[[@{Air}]]}}">Air</option>
+                        <option value="{{Earth=[[@{Earth}]]}}">Earth</option>
+                        <option value="{{Fire=[[@{Fire}]]}}">Fire</option>
+                        <option value="{{Water=[[@{Water}]]}}">Water</option>
+                        <option value="{{Void=[[@{Void}]]}}">Void</option>
+                </select></td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_uspellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_uspellTN" value="5 + @{uspellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_uspellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{uSpellName}}} @{uspellMaho}  @{uspellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{uspellLevel}}} {{AirAffinity=@{airAffinity}}}  {{EarthAffinity=@{earthAffinity}}}  {{FireAffinity=@{fireAffinity}}}  {{WaterAffinity=@{waterAffinity}}}  {{VoidAffinity=@{voidAffinity}}} {{TN=@{uspellTN}}} {{Range=@{uspellRange}}} {{AoE=@{uspellAoE}}} {{Duration=@{uspellDuration}}} {{Raises=@{uspellRaises}}} {{wide=@{uspellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_uspellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="4"><textarea rows="4" name="attr_uspellDescription" placeholder="Description" style="height:100px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_uspellAoE"></td>
+            </tr>
+            <tr>
+                <td><strong>Duration: </strong><input type="text" name="attr_uspellDuration" /></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Raises: </strong><input type="text" name="attr_uspellRaises"></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div> <!--UniversalSpells -->
+    
+    <div class="spellstab-content sheet-airspells-tab">
+   <fieldset class="repeating_airspells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_aspellName" class="sheet-regular" /></td>
+                <td><strong>Raises: </strong><input type="text" name="attr_aspellRaises"><input type="hidden" value="{{Air=[[@{Air}]]}}" name="attr_aspellRing">                    </td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_aspellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_aspellTN" value="5 + @{aspellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_aspellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{aSpellName}}} @{aspellMaho}  @{aspellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{aspellLevel}}} {{AirAffinity=@{airAffinity}}}  {{EarthAffinity=@{earthAffinity}}}  {{FireAffinity=@{fireAffinity}}}  {{WaterAffinity=@{waterAffinity}}}  {{VoidAffinity=@{voidAffinity}}} {{TN=@{aspellTN}}} {{Range=@{aspellRange}}} {{AoE=@{aspellAoE}}} {{Duration=@{aspellDuration}}} {{Raises=@{aspellRaises}}} {{wide=@{aspellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_aspellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="3"><textarea rows="3" name="attr_aspellDescription" placeholder="Description" style="height:75px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_aspellAoE"></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Duration: </strong><input type="text" name="attr_aspellDuration" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div>
+    
+    <div class="tab-content sheet-earthspells-tab">
+   <fieldset class="repeating_earthspells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_espellName" class="sheet-regular" /></td>
+                <td><strong>Raises: </strong><input type="text" name="attr_espellRaises"><input type="hidden" value="{{Earth=[[@{Earth}]]}}" name="attr_espellRing">                    </td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_espellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_espellTN" value="5 + @{espellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_espellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{eSpellName}}} @{espellMaho}  @{espellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{espellLevel}}}  {{EarthAffinity=@{earthAffinity}}} {{TN=@{espellTN}}} {{Range=@{espellRange}}} {{AoE=@{espellAoE}}} {{Duration=@{espellDuration}}} {{Raises=@{espellRaises}}} {{wide=@{espellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_espellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="3"><textarea rows="3" name="attr_espellDescription" placeholder="Description" style="height:75px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_espellAoE"></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Duration: </strong><input type="text" name="attr_espellDuration" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div>
+    
+    <div class="tab-content sheet-firespells-tab">
+   <fieldset class="repeating_firespells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_fspellName" class="sheet-regular" /></td>
+                <td><strong>Raises: </strong><input type="text" name="attr_fspellRaises"><input type="hidden" value="{{Fire=[[@{Fire}]]}}" name="attr_fspellRing">                    </td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_fspellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_fspellTN" value="5 + @{fspellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_fspellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{fSpellName}}} @{fspellMaho}  @{fspellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{fspellLevel}}}  {{FireAffinity=@{fireAffinity}}} {{TN=@{fspellTN}}} {{Range=@{fspellRange}}} {{AoE=@{fspellAoE}}} {{Duration=@{fspellDuration}}} {{Raises=@{fspellRaises}}} {{wide=@{fspellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_fspellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="3"><textarea rows="3" name="attr_fspellDescription" placeholder="Description" style="height:75px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_fspellAoE"></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Duration: </strong><input type="text" name="attr_fspellDuration" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div>
+    
+    <div class="tab-content sheet-waterspells-tab">
+   <fieldset class="repeating_waterspells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_wspellName" class="sheet-regular" /></td>
+                <td><strong>Raises: </strong><input type="text" name="attr_wspellRaises"><input type="hidden" value="{{Water=[[@{Water}]]}}" name="attr_wspellRing"></td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_wspellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_wspellTN" value="5 + @{wspellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_wspellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{wSpellName}}} @{wspellMaho}  @{wspellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{wspellLevel}}}  {{WaterAffinity=@{waterAffinity}}}  {{TN=@{wspellTN}}} {{Range=@{wspellRange}}} {{AoE=@{wspellAoE}}} {{Duration=@{wspellDuration}}} {{Raises=@{wspellRaises}}} {{wide=@{wspellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_wspellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="3"><textarea rows="3" name="attr_wspellDescription" placeholder="Description" style="height:75px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_wspellAoE"></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Duration: </strong><input type="text" name="attr_wspellDuration" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div>
+    
+    <div class="tab-content sheet-voidspells-tab">
+   <fieldset class="repeating_voidspells">
+        <table cellpadding="0" style="width:100%; border-bottom: 1px solid black;">
+            <tr><td style="width:270px;"><strong>Name: </strong><input type="text" name="attr_vspellName" class="sheet-regular" /></td>
+                <td><strong>Raises: </strong><input type="text" name="attr_vspellRaises"><input type="hidden" value="{{Void=[[@{Void}]]}}" name="attr_vspellRing">                    </td>
+                <td><strong>Mastery: </strong><input type="number" name="attr_vspellLevel" /></td>
+                <td><strong>TN: </strong><input disabled="true" type="number" name="attr_vspellTN" value="5 + @{vspellLevel} * 5"></td>
+                <td class="maho"><strong>Maho:  </strong> <input style="position:relative;right:2px;"type="checkbox" value="{{prewide=Maho Spell}}" name="attr_vspellMaho"><span></span></td>
+                <td><strong>Cast</strong><button type="roll" value = "&{template:fatedefault} {{title=@{Name}}} {{subtitle=@{vSpellName}}} @{vspellMaho}  @{vspellRing} {{School Rank=@{shugenja_rank}}} {{Spell Mastery=@{vspellLevel}}} {{VoidAffinity=@{voidAffinity}}} {{TN=@{vspellTN}}} {{Range=@{vspellRange}}} {{AoE=@{vspellAoE}}} {{Duration=@{vspellDuration}}} {{Raises=@{vspellRaises}}} {{wide=@{vspellDescription}}}"></button></td>
+            </tr>
+            <tr>
+                <td><strong>Range: </strong><input type="text" name="attr_vspellRange"/></td>
+                <td style="padding:0px;"colspan="5" rowspan="3"><textarea rows="3" name="attr_vspellDescription" placeholder="Description" style="height:75px;"></textarea></td>
+            </tr>
+            <tr>
+                <td><strong>AoE: </strong><input type="text" name="attr_vspellAoE"></td>
+            </tr>
+            <tr style="margin-bottom:2px;">
+                <td><strong>Duration: </strong><input type="text" name="attr_vspellDuration" /></td>
+            </tr>
+        </table>
+    </fieldset>
+    </div>
+</div> <!--Spells switch tab container -->
+</div> <!--Spells Tab -->
+
+</div> <!--Tabbed-Section-->
+
+</div> <!--Charsheet-->
+
+<rolltemplate class="sheet-rolltemplate-fatedefault">
+    <table width="100%">
+        <th colspan="2">{{title}}{{#subtitle}}<br \><span class="sheet-rolltemplate-subtitle">{{subtitle}}</span>{{/subtitle}}</th>
+        {{#flavor}}
+        <tbody>
+            <tr><td colspan="2"><div class="sheet-rolltemplate-flavor">{{flavor}}</div></td></tr>
+        {{/flavor}}
+        {{#prewide}}
+            <tr><td colspan="2">{{prewide}}</td></tr>
+        {{/prewide}}
+        {{#rollTotal() maho 1}}
+            <tr><td colspan="2" class="sheet-tcat" style="text-align:center;">Maho Spell</td></tr>
+        {{/rollTotal() maho 1}}
+        {{#Air}}
+            <tr><td><div class="sheet-tkey">Affinity Bonus/Penalty</div></td><td class="sheet-tvalue">{{AirAffinity}}</td></tr>
+        {{/Air}}
+        {{#Earth}}
+            <tr><td><div class="sheet-tkey">Affinity Bonus/Penalty</div></td><td class="sheet-tvalue">{{EarthAffinity}}</td></tr>
+        {{/Earth}}
+        {{#Fire}}
+            <tr><td><div class="sheet-tkey">Affinity Bonus/Penalty</div></td><td class="sheet-tvalue">{{FireAffinity}}</td></tr>
+        {{/Fire}}
+        {{#Water}}
+            <tr><td><div class="sheet-tkey">Affinity Bonus/Penalty</div></td><td class="sheet-tvalue">{{WaterAffinity}}</td></tr>
+        {{/Water}}
+        {{#Void}}
+            <tr><td><div class="sheet-tkey">Affinity Bonus/Penalty</div></td><td class="sheet-tvalue">{{VoidAffinity}}</td></tr>
+        {{/Void}}
+        {{#allprops() title subtitle flavor prewide wide wide2 wide3 wide4 wide5 Mastery Emphases AirAffinity EarthAffinity FireAffinity WaterAffinity VoidAffinity}}
+            <tr><td><div class="sheet-tkey">{{key}}</div></td><td class="sheet-tvalue">{{value}}</td></tr>
+        {{/allprops() title subtitle flavor prewide wide wide2 wide3 wide4 wide5 Mastery Emphases AirAffinity EarthAffinity FireAffinity WaterAffinity VoidAffinity}}
+        {{#Emphases}}
+        <tr><td><div class="sheet-tkey">Emphases</div></td><td class="sheet-tvalue">{{Emphases}}</td></tr>
+        {{/Emphases}}
+        {{#Mastery}}
+            <tr><td colspan="2"><div class="sheet-tkey">Mastery</div></td></tr>
+            <tr><td colspan="2">{{Mastery}}</td></tr>
+        {{/Mastery}}
+        {{#wide}}
+            <tr><td colspan="2">{{wide}}</td></tr>
+        {{/wide}}
+        {{#wide2}}
+            <tr><td colspan="2">{{wide2}}</td></tr>
+        {{/wide2}}
+        {{#wide3}}
+            <tr><td colspan="2">{{wide3}}</td></tr>
+        {{/wide3}}
+        {{#wide4}}
+            <tr><td colspan="2">{{wide4}}</td></tr>
+        {{/wide4}}
+        {{#wide5}}
+            <tr><td colspan="2">{{wide5}}</td></tr>
+        {{/wide5}}
+        </tbody>
+    </table>
+</rolltemplate>
